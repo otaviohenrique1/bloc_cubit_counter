@@ -39,16 +39,6 @@ class CounterPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BlocBuilder<CounterCubit, int>(
-              bloc: counterCubit,
-              builder: (context, state) {
-                return Text(
-                  state.toString(),
-                  style: Theme.of(context).textTheme.headlineMedium,
-                );
-              },
-            ),
-            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 counterCubit.increment();
@@ -57,6 +47,16 @@ class CounterPage extends StatelessWidget {
                 "+",
                 style: TextStyle(fontSize: 32),
               ),
+            ),
+            const SizedBox(height: 16),
+            BlocBuilder<CounterCubit, int>(
+              bloc: counterCubit,
+              builder: (context, state) {
+                return Text(
+                  state.toString(),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                );
+              },
             ),
             const SizedBox(height: 16),
             ElevatedButton(
